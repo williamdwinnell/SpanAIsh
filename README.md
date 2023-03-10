@@ -23,4 +23,4 @@ win32
 tkinter.scrolledtext
 
 # Contributors
-This project was developed by Liam and Capryiana.
+This project was developed by Liam and Capriana.
