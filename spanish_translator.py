@@ -8,11 +8,13 @@ import tkinter.scrolledtext as tkst
 from tkinter import ttk
 from win32 import win32clipboard
 import os 
+import tkinter as tk
+from tkinter import ttk
 
 
 gptMODEL = "text-curie-001"#"text-davinci-002" #text-curie-001
 gptMODEL = "text-davinci-003"
-
+gptMODEL = "gpt-3.5-turbo"
 # Load the API-key
 ext_key = ""
 
@@ -32,10 +34,19 @@ def emoji_img(size, text):
     draw.text((int(size/2), int(size/2)), text, embedded_color=True, font=font, anchor="mm")
     return ImageTk.PhotoImage(im)
 
+def get_translation_turbo(inputLabel):
+    #prompt = "Translate the user's sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) with the goal of teaching the concepts of the translation. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
+    prompt = "Translate the user's sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) where you teach the concepts behind the translation to Spanish, like a teacher would. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", 
+                                              messages=[{"role": "system", "content": prompt},
+                                                        {"role": "user", "content": "Input:\n" + inputLabel}]) 
+    response = response.choices[0].message.content
+    return response
+
 def get_translation(inputLabel, explanation=False):
     if explanation==True:
         #prompt = "\n\nTranslate the sentence to Spanish (labelled Translation: ), then do a break down explanation (label it Break Down: ) teaching the translation. Lastly, identify the tense of the translation, as one of the following (Present, Past, Future, Imperfect, Pluperfect, Conditional, Present Perfect, Past Perfect, Future Perfect, Conditional Perfect, Subjunctive, Present Subjunctive, Imperfect Subjunctive, Future Subjunctive, Present Perfect Subjunctive, Preterite Perfect or Past Anterior)."
-        prompt = "\n\nTranslate the sentence to Spanish (labelled Translation: ), then do a break down explanation in a list format (label it Break Down: ) with the goal of teaching the concepts of the translation. Then, identify the tense of the translation (Tense:) Make sure the tense is written in english."
+        prompt = "\n\nTranslate the sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) with the goal of teaching the concepts of the translation. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
         if emoji_var.get() == 1:
             prompt = "\n\nTranslate the sentence to Spanish and include an educational emojis for every word in the translation (labelled Translation: ), then do a break down explanation in a list format (label it Break Down: ) with the goal of teaching the concepts of the translation. Then, identify the tense of the translation (Tense:) Make sure the tense is written in english."
         
@@ -57,7 +68,7 @@ openai.api_key = ext_key
 
 def on_submit():
 
-    disp_string = get_translation(input_entry.get(), explanation=True)
+    disp_string = get_translation_turbo(input_entry.get())#get_translation(input_entry.get(), explanation=True)
     
     translation_entry.config(state='normal') # Enable edition of the text area
     translation_entry.delete(1.0, tk.END)
@@ -73,37 +84,6 @@ def on_submit():
     tense_entry.delete(1.0, tk.END)
     tense_entry.insert(tk.INSERT, disp_string.split("Break Down:")[1].split("Tense:")[1])
     tense_entry.config(state='disabled') # Disable edition of the text area
-
-def on_explain():
-    return 0
-
-def on_example():
-    return 0
-'''
-root = tk.Tk()
-root.protocol("WM_DELETE_WINDOW", root.quit)
-root.geometry("960x600") # set window size
-root.title("SpanAI")
-
-root.columnconfigure(1, weight=1)
-root.rowconfigure(2, weight=1)
-
-inputLabel = ttk.Label(root, text="English: ")
-inputLabel.grid(row=0, column=0, padx=5, pady=5,sticky='W')
-
-input_entry = ttk.Entry(root,width=85)
-input_entry.grid(row=0, column=1, padx=5, pady=5,ipadx=0,sticky='NSEW')
-
-
-submit_button = ttk.Button(root, text="Submit", command=on_submit)
-submit_button.grid(row=0, column=2, padx=15, pady=5, sticky='W')
-
-answer_text = tkst.ScrolledText(root, wrap='word', state='disable', width=110, height=29) # use ScrolledText widget to have a scrollable text
-answer_text.grid(row=1, column=0, columnspan=3, padx=5, pady=5,sticky='NSEW')
-'''
-
-import tkinter as tk
-from tkinter import ttk
 
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", root.quit)
