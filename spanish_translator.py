@@ -35,8 +35,9 @@ def emoji_img(size, text):
 def get_translation_turbo(inputLabel):
     #prompt = "Translate the user's sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) with the goal of teaching the concepts of the translation. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
     #prompt = "Translate the user's sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) where you teach the concepts behind the translation to Spanish, like a teacher would. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
-    prompt = "Translate the user's sentence to Spanish (Translation:). Next, write a spanish lesson teaching the translation in depth, as if you were a spanish teacher. The lesson should be formatted as an ordered list that is 5 points long or less. (Lesson:). Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
-
+    prompt = "Translate the user's sentence to Spanish (Translation:). Next, write a spanish lesson (in English) teaching the key concepts from the translation, as if you were a spanish teacher. The lesson should be formatted as an ordered list that is 5 points long or less. (Lesson:). Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
+    #prompt = "Translate the user's sentence to Spanish (Translation:). Next, write a spanish lesson teaching the key concepts from the translation, as if you were a spanish teacher (Lesson:). Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
+    
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", 
                                               messages=[{"role": "system", "content": prompt},
                                                         {"role": "user", "content": "Input:\n" + inputLabel}]) 
