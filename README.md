@@ -1,6 +1,5 @@
 # SpanAI
 An English to Spanish translator with a focus on education.
-SpanAI
 SpanAI is a simple graphical user interface (GUI) that uses the OpenAI GPT-3 model to translate English sentences to Spanish and provide a Spanish lesson about the translation.
 
 # Installation
