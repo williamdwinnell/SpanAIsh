@@ -748,4 +748,4 @@ keys = list(tenses.keys())
 # All of the tenses isolated in lower case form for better comparison
 lowercase_keys = [key.lower() for key in tenses.keys()]
 
-print(tenses['Present'])
+#print(tenses['Present'])

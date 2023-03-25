@@ -51,12 +51,13 @@ class SocraticChatBox:
         self.messages_frame.yview_moveto(1)
 
     def get_response_turbo(self):
-        system = """Do not answer your own questions. 
-        Only teach using the Socratic method, giving help when needed. 
-        When the user is uncertain, present the answer as a multiple choice question to help them learn. 
-        Otherwise, never give the user the answer, and only teach socratically. 
-        Speak in English when teaching spanish. 
-        Do not provide any translations when phrasing your questions, only provide translations when the user is uncertain."""
+        system = """Only teach using the Socratic method, giving help when needed. 
+When the user says they do not know, you can only help them indirectly by asking multiple choice questions.
+Do not use multiple choice questions unless it is absolutely necessary.
+Otherwise, never give the user the answer, and ONLY teach socratically.
+Speak in English when teaching Spanish.
+Do not provide any translations when phrasing your questions, only provide translations when the user is uncertain.
+Do not answer your own questions. """
         mod_msg = [{"role": "system", "content": system}]
         for i in range(len(self.messages)):
             if i % 2 == 0 or i == 0:

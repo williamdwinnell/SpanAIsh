@@ -1,22 +1,26 @@
 ###Code written by Liam & Capryiana 
-### add lesson recommendations using a special classifier 
 ### 
+
+# api imports
 import openai
-from PIL import Image, ImageDraw, ImageFont, ImageTk
+
+# gui imports
 import tkinter as tk
 import tkinter.scrolledtext as tkst
 from tkinter import ttk
-from win32 import win32clipboard
-import os 
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox as mb
+
+# local imports 
 import tenses_data
 import socratic_spanish
 
-#print(tenses_data.tenses['Present'])
+# other imports
+import os 
 
 gptMODEL = "gpt-3.5-turbo"
+
 # Load the API-key
 ext_key = ""
 
@@ -91,48 +95,59 @@ root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", root.quit)
 root.title("SpanAI")
 
-w = 960 # width for the Tk root
-h = 820 # height for the Tk root
+w =1120  # window width 
+h = 800  # window height
 
 # get screen width and height
-ws = root.winfo_screenwidth() # width of the screen
-hs = root.winfo_screenheight() # height of the screen
+ws = root.winfo_screenwidth()  # width of the screen
+hs = root.winfo_screenheight()  # height of the screen
 
-# calculate x and y coordinates for the Tk root window
-x = (ws/2) - (w/2)
-y = (hs/2) - (h/2)
+# calculate x and y coordinates for centering the window
+x = (ws / 2) - (w / 2)
+y = (hs / 2) - (h / 2)
 
-# set the dimensions of the screen 
+# set the dimensions of the screen
 # and where it is placed
 root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
 root.columnconfigure(0, weight=1)
 
-inputLabel = ttk.Label(root, text="English: ")
-inputLabel.grid(row=0, column=0, padx=5, pady=5, sticky='NSEW')
+# container for main GUI
+main_frame = ttk.Frame(root, padding=(10, 10, 10, 10))
+main_frame.grid(row=0, column=0, sticky='NSEW')
 
-input_entry = tk.Text(root, height=2, width=100)
-input_entry.grid(row=1, column=0, padx=5, pady=5, ipadx=0, sticky='EW')
+# Your English Input
+inputLabel = ttk.Label(main_frame, text="Your English Input", font=("Helvetica", 11, "bold"), underline=0)
+inputLabel.grid(row=0, column=0, padx=10, pady=5, sticky='W')
 
-submit_button = ttk.Button(root, text="Translate", command=on_submit, width=.5)
-submit_button.grid(row=2, column=0, padx=0, pady=0, sticky='NSEW')
+# User Input Object
+input_entry = tk.Text(main_frame, height=2, width=100, wrap='word')
+input_entry.grid(row=1, column=0, padx=5, pady=0, ipadx=0, sticky='EW')
 
-translation_label = ttk.Label(root, text="Translation")
-translation_label.grid(row=3, column=0, padx=5, pady=5, sticky='NSEW')
-translation_entry = tkst.ScrolledText(root, wrap='word', state='disable', width=105, height=3)
+# Run the submit function * contains api call
+submit_button = ttk.Button(main_frame, text="Translate", command=on_submit, width=.5)
+submit_button.grid(row=2, column=0, padx=0, pady=5, sticky='NSEW')
+
+# where translations go
+translation_label = ttk.Label(main_frame, text="Translation", font=("Helvetica", 11, "bold"), underline=0)
+translation_label.grid(row=3, column=0, padx=5, pady=5, sticky='W')
+translation_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=3)
 translation_entry.grid(row=4, column=0, padx=5, pady=5, sticky='EW')
 
-breakdown_label = ttk.Label(root, text="Lesson")
-breakdown_label.grid(row=5, column=0, padx=5, pady=5, sticky='NSEW')
-breakdown_entry = tkst.ScrolledText(root, wrap='word', state='disable', width=105, height=8)
+# where lessons go
+breakdown_label = ttk.Label(main_frame, text="Lesson", font=("Helvetica", 11, "bold"), underline=0)
+breakdown_label.grid(row=5, column=0, padx=5, pady=5, sticky='W')
+breakdown_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=8)
 breakdown_entry.grid(row=6, column=0, padx=5, pady=5, sticky='EW')
 
-tense_label = ttk.Label(root, text="Tense")
-tense_label.grid(row=7, column=0, padx=5, pady=5, sticky='NSEW')
-tense_entry = tkst.ScrolledText(root, wrap='word', state='disable', width=105, height=12)
+# where tense info goes
+tense_label = ttk.Label(main_frame, text="Tense", font=("Helvetica", 11, "bold"), underline=0)
+tense_label.grid(row=7, column=0, padx=5, pady=5, sticky='W')
+tense_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=12)
 tense_entry.grid(row=8, column=0, padx=5, pady=5, sticky='EW')
 
-button = tk.Button(root, text="Need Help? AI Tutor.", command=tutor_launch)
-button.grid(row=9, column=0, padx=5, pady=5, sticky='EW')
+# open tutor chat box
+tutor_button = tk.Button(main_frame, text="Need Help? AI Tutor.", command=tutor_launch)
+tutor_button.grid(row=9, column=0, padx=5, pady=5, sticky='EW')
 
 root.mainloop()
