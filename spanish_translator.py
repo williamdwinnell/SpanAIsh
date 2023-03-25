@@ -11,6 +11,9 @@ import os
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox as mb
+import tenses_data
+
+#print(tenses_data.tenses['Present'])
 
 gptMODEL = "gpt-3.5-turbo"
 # Load the API-key
@@ -22,15 +25,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # Load the text file and read the first line
 with open(os.path.join(current_dir, "key.txt"), "r") as file:
     ext_key = file.readline()
-
-
-def emoji_img(size, text):
-    font = ImageFont.truetype("seguiemj.ttf", size=int(round(size*72/96, 0))) 
-    # pixels = points * 96 / 72 : 96 is windowsDPI
-    im = Image.new("RGBA", (int(size), int(size)), (255, 255, 255, 0))
-    draw = ImageDraw.Draw(im)
-    draw.text((int(size/2), int(size/2)), text, embedded_color=True, font=font, anchor="mm")
-    return ImageTk.PhotoImage(im)
 
 def get_translation_turbo(inputLabel):
     #prompt = "Translate the user's sentence to Spanish (Translation:), then do a break down explanation in a list format (Break Down:) with the goal of teaching the concepts of the translation. Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English."
@@ -49,35 +43,55 @@ openai.api_key = ext_key
 
 def on_submit():
 
-    #parsers = ["Translation:", "Break Down:", "Tense:"]
+    # The possible sections in the model output
     parsers = ["Translation:", "Lesson:", "Tense:"]
     entry = input_entry.get("1.0", "end-1c")
+
+    # Limit the input length to a couple of sentences, as a security measure
     if len(entry) > 150:
         mb.showerror(title = "Your input is too long.", message = "Please try a shorter translation.")
     else:
+        # Gets the translation from the user's input.
         disp_string = get_translation_turbo(input_entry.get("1.0", "end-1c"))
         
-        translation_entry.config(state='normal') # Enable edition of the text area
+        # Get the translation from the output
+        translation_entry.config(state='normal')
         translation_entry.delete(1.0, tk.END)
-        translation_entry.insert(tk.INSERT, disp_string.split(parsers[0])[1].split(parsers[1])[0])
-        translation_entry.config(state='disabled') # Disable edition of the text area
+        disp_translation = disp_string.split(parsers[0])[1].split(parsers[1])[0]
+        translation_entry.insert(tk.INSERT, disp_translation)
+        translation_entry.config(state='disabled')
 
-        breakdown_entry.config(state='normal') # Enable edition of the text area
+        # Get the lesson/breakdown from the output
+        breakdown_entry.config(state='normal') 
         breakdown_entry.delete(1.0, tk.END)
-        breakdown_entry.insert(tk.INSERT, disp_string.split(parsers[1])[1].split(parsers[2])[0])
-        breakdown_entry.config(state='disabled') # Disable edition of the text area
+        disp_lesson = disp_string.split(parsers[1])[1].split(parsers[2])[0]
+        breakdown_entry.insert(tk.INSERT, disp_lesson)
+        breakdown_entry.config(state='disabled')
 
-        tense_entry.config(state='normal') # Enable edition of the text area
+        # Get the tense from the output and display it
+        tense_entry.config(state='normal')
         tense_entry.delete(1.0, tk.END)
-        tense_entry.insert(tk.INSERT, disp_string.split(parsers[1])[1].split(parsers[2])[1])
-        tense_entry.config(state='disabled') # Disable edition of the text area
+        disp_tense = disp_string.split(parsers[1])[1].split(parsers[2])[1]
+
+        # Search for any tenses from the dict of tenses 
+        index = -1
+        for key in tenses_data.lowercase_keys:
+            if key in disp_tense.lower():
+                index = tenses_data.lowercase_keys.index(key)
+        if index != -1:
+            disp_tense += "\n\n"
+            disp_tense += tenses_data.tenses[tenses_data.keys[index]]
+
+        # Display the tense with or without the dict
+        tense_entry.insert(tk.INSERT, disp_tense)
+        tense_entry.config(state='disabled')
 
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", root.quit)
 root.title("SpanAI")
 
 w = 960 # width for the Tk root
-h = 580 # height for the Tk root
+h = 740 # height for the Tk root
 
 # get screen width and height
 ws = root.winfo_screenwidth() # width of the screen
@@ -114,18 +128,7 @@ breakdown_entry.grid(row=6, column=0, padx=5, pady=5, sticky='EW')
 
 tense_label = ttk.Label(root, text="Tense")
 tense_label.grid(row=7, column=0, padx=5, pady=5, sticky='NSEW')
-tense_entry = tkst.ScrolledText(root, wrap='word', state='disable', width=40, height=1)
+tense_entry = tkst.ScrolledText(root, wrap='word', state='disable', width=105, height=12)
 tense_entry.grid(row=8, column=0, padx=5, pady=5, sticky='EW')
-
-# create the "emoji translation" checkbox
-emoji_var = tk.IntVar()
-emoji_checkbox = ttk.Checkbutton(root, text="Emoji Translation", variable=emoji_var)
-emoji_checkbox.grid(row=9, column=0, padx=5, pady=5, sticky='W')
-
-# create the "simplify" checkbox
-simplify_var = tk.IntVar()
-simplify_checkbox = ttk.Checkbutton(root, text="Simplify", variable=simplify_var)
-simplify_checkbox.grid(row=9, column=0, padx=135, pady=5, sticky='W')
-
 
 root.mainloop()
