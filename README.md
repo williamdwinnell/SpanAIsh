@@ -16,11 +16,8 @@ Install the required packages using `pip install -r requirements.txt`
 
 # Dependencies
 The following packages are required:
+
 openai
-Pillow
-tkinter
-win32
-tkinter.scrolledtext
 
 # Contributors
 This project was developed by Liam and Capriana.
