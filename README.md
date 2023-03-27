@@ -17,7 +17,7 @@ Install the required packages using `pip install -r requirements.txt`
 # Dependencies
 The following packages are required:
 
-openai
+```pip install openai```
 
 # Contributors
 This project was developed by Liam and Capriana.
