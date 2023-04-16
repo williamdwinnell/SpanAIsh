@@ -735,9 +735,439 @@ Conjugations:
         sonreír (to smile) - sonreído
         traer (to bring) - traído""",
 
-  'Imperative mood': """ """,
-   'Infinitive mood': """ """,
-   'Gerund mood': """ """,
+    'Present Progressive': """The present progressive (el presente progresivo) is used to talk about an ongoing action or event that is currently in progress at the moment of speaking. It is formed by using the verb "estar" (to be) in the present tense followed by the gerund form of the verb (-ando/-iendo).
+
+Conjugations:
+    1. Conjugate the verb estar in the present tense
+        Yo -estoy
+        Tú -estás
+        Él/Ella/Usted -está
+        Nosotros -estamos
+        Vosotros -estáis
+        Ellos/Ellas/Ustedes -están
+
+    2. Then, add the gerund form of the desired verb
+
+        For -ar endings:
+            Add -ando to the stem of the verb.
+            Example: 
+        Hablar (to talk) -> hablando (talking)
+            
+        For -er and -ir endings:
+            Add -iendo to the stem of the verb.
+            Example: 
+        Comer (to eat) -> comiendo (eating)
+        Vivir (to live) -> viviendo (living)
+
+Irregulars:
+	Ir (to go) -> yendo (going)
+    Oír (to hear) -> oyendo (hearing)
+    Leer (to read) -> leyendo (reading)
+    Creer (to believe) -> creyendo (believing)
+    Traer (to bring) -> trayendo (bringing)
+
+    Some verbs have stem changes in the gerund form. Typically, -ir verbs with stems ending in -e or -o change to -i or -u, respectively.
+
+    Examples:
+        Pedir (to ask for) -> pidiendo (asking for)
+        Dormir (to sleep) -> durmiendo (sleeping)""",
+
+'Preterite Progressive': """The preterite progressive (el pretérito progresivo) is used to talk about an ongoing action or event that took place in the past. It is formed by using the verb "estar" (to be) in the preterite tense followed by the gerund form of the verb (-ando/-iendo).
+
+    Conjugations:
+        1. Conjugate the verb estar in the present tense
+            Yo -estuve
+            Tú -estuviste
+            Él/Ella/Usted -estuvo
+            Nosotros -estuvimos
+            Vosotros -estuvisteis
+            Ellos/Ellas/Ustedes -estuvieron
+
+        2. Then, add the gerund form of the desired verb
+
+        For -ar endings:
+            Add -ando to the stem of the verb.
+            Example: 
+        Hablar (to talk) -> hablando (talking)
+            
+        For -er and -ir endings:
+            Add -iendo to the stem of the verb.
+            Example: 
+        Comer (to eat) -> comiendo (eating)
+        Vivir (to live) -> viviendo (living)
+
+    Irregulars:
+        Ir (to go) -> yendo (going)
+        Oír (to hear) -> oyendo (hearing)
+        Leer (to read) -> leyendo (reading)
+        Creer (to believe) -> creyendo (believing)
+        Traer (to bring) -> trayendo (bringing)
+
+    Some verbs have stem changes in the gerund form. Typically, -ir verbs with stems ending in -e or -o change to -i or -u, respectively.
+
+    Examples:
+        Pedir (to ask for) -> pidiendo (asking for)
+        Dormir (to sleep) -> durmiendo (sleeping)""",
+
+    'Imperfect Progressive': """The imperfect progressive (el imperfecto progresivo) is used to talk about an action or event that was ongoing or in progress in the past. It is formed by using the verb "estar" (to be) in the imperfect tense followed by the gerund form of the verb (-ando/-iendo).
+
+    Conjugations:
+        1. Conjugate the verb estar in the present tense
+            Yo -estaba
+            Tú -estabas
+            Él/Ella/Usted -estaba
+            Nosotros -estábamos
+            Vosotros -estabais
+            Ellos/Ellas/Ustedes -estaban
+
+        2. Then, add the gerund form of the desired verb
+
+            For -ar endings:
+                Add -ando to the stem of the verb.
+                Example: 
+            Hablar (to talk) -> hablando (talking)
+                
+            For -er and -ir endings:
+                Add -iendo to the stem of the verb.
+                Example: 
+            Comer (to eat) -> comiendo (eating)
+            Vivir (to live) -> viviendo (living)
+
+    Irregulars:
+        Ir (to go) -> yendo (going)
+        Oír (to hear) -> oyendo (hearing)
+        Leer (to read) -> leyendo (reading)
+        Creer (to believe) -> creyendo (believing)
+        Traer (to bring) -> trayendo (bringing)
+
+    Some verbs have stem changes in the gerund form. Typically, -ir verbs with stems ending in -e or -o change to -i or -u, respectively.
+
+    Examples:
+        Pedir (to ask for) -> pidiendo (asking for)
+        Dormir (to sleep) -> durmiendo (sleeping)""",
+
+    'Future Progressive': """The future progressive (el futuro progresivo) is used to talk about something that will be happening. It is formed by using the verb "estar" (to be) in the future tense followed by the gerund form of the verb (-ando/-iendo).
+
+    Conjugations:
+        1. Conjugate the verb estar in the present tense
+            Yo -estaré
+            Tú -estarás
+            Él/Ella/Usted -estará
+            Nosotros -estaremos
+            Vosotros -estaréis
+            Ellos/Ellas/Ustedes -estarán
+
+        2. Then, add the gerund form of the desired verb
+
+            For -ar endings:
+                Add -ando to the stem of the verb.
+                Example: 
+            Hablar (to talk) -> hablando (talking)
+                
+            For -er and -ir endings:
+                Add -iendo to the stem of the verb.
+                Example: 
+            Comer (to eat) -> comiendo (eating)
+            Vivir (to live) -> viviendo (living)
+
+    Irregulars:
+        Ir (to go) -> yendo (going)
+        Oír (to hear) -> oyendo (hearing)
+        Leer (to read) -> leyendo (reading)
+        Creer (to believe) -> creyendo (believing)
+        Traer (to bring) -> trayendo (bringing)
+
+    Some verbs have stem changes in the gerund form. Typically, -ir verbs with stems ending in -e or -o change to -i or -u, respectively.
+
+    Examples:
+        Pedir (to ask for) -> pidiendo (asking for)
+        Dormir (to sleep) -> durmiendo (sleeping)""",
+
+    'Imperative mood': """The imperative mood (el modo imperativo) is used to give commands to someone or a group of people. There are five forms of the imperative: tú, usted, nosotros, vosotros, and ustedes that are used to give affirmative and negative commands.""",
+
+    'Affirmative tú commands': """Affirmative tú commands (mandatos afirmativos de ‘tú’) are used to informally tell someone to do something or complete an action.
+
+    Conjugations:
+
+    Regular affirmative tú commands are conjugated the same way as third-person él, ella and usted present tense verbs.
+
+        1. Drop the -ar, -er, or -ir ending off of the infinitive verb
+        2. Add the appropriate endings:
+
+            For -ar verbs:
+                Add -a
+
+            For -er verbs:
+                Add -e
+
+            It is important to note that when verbs have stem changes in the present tense él, ella and usted form, the command form will have the same exact stem change. Example: mover (to move) - mueve
+
+    Irregulars:
+        Decir (to say) - di
+        Hacer (to do) - haz
+        Ir (to go) - ve
+        Poner (to put) - pon
+        Salir (to leave) - sal
+        Ser (to be) - sé
+        Tener (to have) - ten
+        Venir (to come) - ven""",
+    'Affirmative Usted commands': """Affirmative usted commands (mandatos afirmativos de ‘usted’) are used to give instructions or commands to someone in a formal manner. 
+
+    Conjugations:
+        1. Translate the verb into the present tense ‘yo’ form
+        2. Drop the ‘o’ ending
+        3. Add the appropriate endings:
+
+        For -ar verbs:
+            Add -e
+
+        For -er verbs:
+            Add -a
+
+    Irregulars:
+        Dar (to give) - dé 
+        Estar (to be) - esté 
+        Ir (to go) - vaya
+        Saber (to know) - sepa 
+        Ser (to be) - sea
+        Haber (to have) - haya (auxiliary verb)
+
+    Verbs that end in "car," "gar," and "zar" have a spelling change in the command form in order to maintain the correct pronunciation.
+	    car -> que 
+        gar -> gue 
+        zar -> ce
+
+    Examples:
+        Sacar (to take out) - saque
+        Pagar (to pay) - pague
+        Cruzar (to cross) - cruce""",
+    'Affirmative nosotros commands': """Affirmative nosotros commands (mandatos afirmativos de ‘nosotros’) are used to give orders or suggestions that include yourself as well as others. They correspond to the English ‘let’s + verb’. 
+
+    Conjugations:
+
+    Regular affirmative nosotros commands are conjugated the same way as present tense subjunctive nosotros verbs.
+
+        1. Conjugate the verb to the present tense ‘yo’ form
+        2. Drop the ’o’ ending
+        3. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -emos
+
+        For the -er, and -ir verbs:
+            Add -amos
+
+        Irregulars:
+            Dar (to give) - demos
+            Estar (to be) - estemos
+            Ir (to go) - vamos
+            Saber (to know) - sepamos
+            Ser (to be) - seamos
+            Hacer (to do/make) - hagamos
+            Poner (to put) - pongamos
+            Salir (to leave) - salgamos
+            Tener (to have) - tengamos
+            Venir (to come) - vengamos""",
+    'Affirmative vosotros commands': """Affirmative vosotros commands (mandatos afirmativos de ‘vosotros’) are only used in Spain. They are used to give commands or orders to a group of people.
+
+	Conjugations:
+        1. Drop the final ‘r’ from the infinitive form of the verb
+        2. Add ‘d’ at the end 
+
+        Example: hablar (to talk) - hablad, comer (to eat) - comed
+
+    For reflexive verbs, affirmative commands are formed by dropping the -r and adding the reflexive pronoun -os
+
+	    Example: cepillarse (to brush oneself) - cepillaos""",
+    'Affirmative ustedes commands': """Affirmative ustedes commands (mandatos afirmativos de ‘ustedes’) are used in Latin America. They are used to give commands or instructions to a group of people.
+
+    Conjugations:
+
+    Regular affirmative ustedes commands are conjugated the same way as the third-person plural ustedes form in the present subjunctive.
+
+        1. Conjugate the verb to the present tense ‘yo’ form
+        2. Drop the ’o’ ending
+        3. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -en
+
+        For the -er, and -ir verbs:
+            Add -an
+
+	Irregulars:
+		Dar (to give) - dén
+        Estar (to be) - estén
+        Ir (to go) - vayan
+        Saber (to know) - sepan
+        Ser (to be) - sean
+        Haber (to have) - hayan (auxiliary verb)
+
+    Verbs that end in "car," "gar," and "zar" have a spelling change in the command form in order to maintain the correct pronunciation.
+        car -> que 
+        gar -> gue 
+        zar -> ce
+
+    Examples:
+        Sacar (to take out) - saquen
+        Pagar (to pay) - paguen
+        Cruzar (to cross) - crucen""",
+    'Negative tú commands': """Negative tú commands (mandatos negativos de ‘tú’) are used to informally tell someone not to do something.
+
+Conjugations:
+
+Regular negative tú commands are conjugated the same way as the tú form in the present subjunctive.
+
+		1. Place a ‘no’ before the verb to make it a negative command
+        2. Conjugate the verb to the present tense ‘yo’ form
+        3. Drop the ’o’ ending
+        4. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -es
+
+        For the -er, and -ir verbs:
+            Add -as
+
+		Example: Hablar (to talk) - No hables (do not talk)
+
+    Remember: In negative commands, the pronouns are placed before the verb
+
+	Irregulars:
+        Dar (to give) - no des
+        Ir (to go) - no vayas
+        Ser (to be) - no seas
+        Estar (to be) - no estés
+        Saber (to know) - no sepas
+        Ver (to see) - no veas
+        Decir (to say) - no digas
+        Hacer (to do) - no hagas""",
+    'Negative usted commands': """Negative usted commands (mandatos negativos de ‘usted’) are used to tell someone to not do something in a formal manner.
+
+    Conjugations:
+        1. Place a ‘no’ before the verb to make it a negative command
+        2. Translate the verb into the present tense ‘yo’ form
+        3. Drop the ‘o’ ending
+        4. Add the appropriate endings:
+
+    For -ar verbs:
+        Add -e
+
+    For -er verbs:
+        Add -a
+
+        Example: Hablar (to talk) - No hable (do not talk)
+
+    Remember: In negative commands, the pronouns are placed before the verb
+
+    Irregulars:
+        Dar (to give) - no dé 
+        Estar (to be) - no esté 
+        Ir (to go) - no vaya
+        Saber (to know) - no sepa 
+        Ser (to be) - no sea
+        Haber (to have) - no haya (auxiliary verb)
+
+    Verbs that end in "car," "gar," and "zar" have a spelling change in the command form in order to maintain the correct pronunciation.
+        car -> que 
+        gar -> gue 
+        zar -> ce
+
+    Examples:
+        Sacar (to take out) - no saque
+        Pagar (to pay) - no pague
+        Cruzar (to cross) - no cruce""",
+    'Negative nosotros commands': """Negative nosotros commands (mandatos negativos de ‘nosotros’) are used to tell a group of people including yourself to not do something. They correspond to the English ‘let’s not + verb’. 
+
+    Conjugations:
+
+    Regular negative nosotros commands are conjugated the same way as present tense subjunctive nosotros verbs.
+
+        1. Place a ‘no’ before the verb to make it a negative command
+        2. Conjugate the verb to the present tense ‘yo’ form
+        3. Drop the ’o’ ending
+        4. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -emos
+
+        For the -er, and -ir verbs:
+            Add -amos
+
+		Example: Hablar (to talk) - no hablemos (let’s not talk)
+
+	Remember: In negative commands, the pronouns are placed before the verb
+
+	Irregulars:
+		Dar (to give) - no demos
+        Estar (to be) - no estemos
+        Ir (to go) - no vamos
+        Saber (to know) - no sepamos
+        Ser (to be) - no seamos
+        Hacer (to do/make) - no hagamos
+        Poner (to put) - no pongamos
+        Salir (to leave) - no salgamos
+        Tener (to have) - no tengamos
+        Venir (to come) - no vengamos""",
+    'Negative vosotros commands': """Negative vosotros commands (mandatos negativos de ‘vosotros’) are only used in Spain. They are used to tell a group of people to not do something.
+
+    Regular negative vosotros commands are conjugated the same way as present tense subjunctive vosotros verbs.
+
+	Conjugations:
+        1. Place a ‘no’ before the verb to make it a negative command
+        2. Conjugate the verb to the present tense ‘yo’ form
+        3. Drop the ’o’ ending
+        4. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -éis
+
+        For the -er, and -ir verbs:
+            Add -áis
+
+        Example: Hablar (to talk) - no habléis (do not talk)
+
+	Remember: In negative commands, the pronouns are placed before the verb""",
+    'Negative ustedes commands': """Negative ustedes commands (mandatos negativos de ‘ustedes’) are used in Latin America. They are used to tell a group of people not to do something.
+
+    Conjugations:
+
+    Regular negative ustedes commands are conjugated the same way as the third-person plural ustedes form in the present subjunctive.
+
+        1. Place a ‘no’ before the verb to make it a negative command
+        2. Conjugate the verb to the present tense ‘yo’ form
+        3. Drop the ’o’ ending
+        4. Add the appropriate endings:
+
+        For the -ar verbs:
+            Add -en
+
+        For the -er, and -ir verbs:
+            Add -an
+
+        Example: Hablar (to talk) - no hablen (do not talk)
+
+    Remember: In negative commands, the pronouns are placed before the verb
+
+	Irregulars:
+		Dar (to give) - no dén
+        Estar (to be) - no estén
+        Ir (to go) -no vayan
+        Saber (to know) - no sepan
+        Ser (to be) - no sean
+        Haber (to have) - no hayan (auxiliary verb)
+
+    Verbs that end in "car," "gar," and "zar" have a spelling change in the command form in order to maintain the correct pronunciation.
+        car -> que 
+        gar -> gue 
+        zar -> ce
+
+    Examples:
+        Sacar (to take out) - no saquen
+        Pagar (to pay) - no paguen
+        Cruzar (to cross) - no crucen""",
+    'Infinitive mood': """ """,
+    'Gerund mood': """ """,
 }
 
 #tenses['Past Tense'] = tenses['Preterite']
