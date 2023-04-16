@@ -1,4 +1,4 @@
-###Code written by Liam & Capryiana 
+###Code written by Liam & Capriana 
 ### 
 
 # api imports
@@ -189,11 +189,9 @@ class model_loader():
 class AutocompleteGUI:
 
     def __init__(self):
-        # stores the message history
-        #self.messages = []
         self.mLoader = model_loader()
 
-    # when the send button is pressed this function is run
+    # Generates suggestions for the autocomplete GUI
     def send_message(self):
         # get the suggestions
         suggestions = self.get_autocomplete(6)
@@ -214,7 +212,7 @@ class AutocompleteGUI:
         self.user_entry.delete(0, tk.END)
         self.user_entry.insert(tk.END, current_text + " " + suggestion)
 
-    # Generates the next word for the user entry
+    # Inference the model and return the first word segment n times
     def get_autocomplete(self, n_completions):
         completions = []
 
@@ -323,7 +321,7 @@ def on_submit():
 
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", root.quit)
-root.title("SpanAI")
+root.title("SpanAIsh")
 
 w =1120  # window width 
 h = 850  # window height
@@ -361,7 +359,6 @@ nested_frame = ttk.Frame(canvas)
 # Attach the nested frame to the canvas
 canvas.create_window((0, 0), window=nested_frame, anchor='nw')
 
-# Configure main_frame
 # Configure main_frame
 root.columnconfigure(0, weight=1)
 root.rowconfigure(0, weight=1)
