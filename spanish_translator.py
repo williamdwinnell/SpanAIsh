@@ -338,50 +338,92 @@ y = (hs / 2) - (h / 2)
 
 # set the dimensions of the screen
 # and where it is placed
-root.geometry('%dx%d+%d+%d' % (w, h, x, y))
-
-root.columnconfigure(0, weight=1)
+root.geometry('%dx%d+%d+%d' % (int(ws/3*2), int(hs/3*2), x, y))
 
 # container for main GUI
 main_frame = ttk.Frame(root, padding=(10, 10, 10, 10))
 main_frame.grid(row=0, column=0, sticky='NSEW')
 
+# Create a Canvas widget
+canvas = tk.Canvas(main_frame)
+canvas.grid(row=0, column=0, sticky='NSEW')
+
+# Create a Scrollbar widget
+scrollbar = ttk.Scrollbar(main_frame, orient="vertical", command=canvas.yview)
+scrollbar.grid(row=0, column=1, sticky='ns')
+
+# Configure the canvas to work with the scrollbar
+canvas.configure(yscrollcommand=scrollbar.set)
+
+# Create a nested frame inside main_frame
+nested_frame = ttk.Frame(canvas)
+
+# Attach the nested frame to the canvas
+canvas.create_window((0, 0), window=nested_frame, anchor='nw')
+
+# Configure main_frame
+# Configure main_frame
+root.columnconfigure(0, weight=1)
+root.rowconfigure(0, weight=1)
+main_frame.columnconfigure(0, weight=1)
+main_frame.rowconfigure(0, weight=1)
+canvas.columnconfigure(0, weight=1)
+canvas.rowconfigure(0, weight=1)
+
+# Configure nested_frame
+for i in range(11):
+    nested_frame.rowconfigure(i, weight=1)  # Add weight to each row
+nested_frame.columnconfigure(0, weight=1)  # Add weight only to the first column
+
+# Attach the nested frame to the canvas
+canvas.create_window((0, 0), window=nested_frame, anchor='nw', tags='nested_frame')  # Add tags attribute
+
+def on_configure(event):
+    canvas.itemconfigure('nested_frame', width=canvas.winfo_width())  # Set the width of the nested_frame to the canvas width
+
+canvas.bind('<Configure>', on_configure)
+
 # Your English Input
-inputLabel = ttk.Label(main_frame, text="Your English Input", font=("Helvetica", 11, "bold"), underline=0)
+inputLabel = ttk.Label(nested_frame, text="Your English Input", font=("Helvetica", 11, "bold"), underline=0)
 inputLabel.grid(row=0, column=0, padx=10, pady=5, sticky='W')
 
 # User Input Object
-input_entry = tk.Text(main_frame, height=2, width=100, wrap='word')
+input_entry = tk.Text(nested_frame, width=100, wrap='word', height=2) #2
 input_entry.grid(row=1, column=0, padx=5, pady=0, ipadx=0, sticky='EW')
 
 # Run the submit function * contains api call
-submit_button = ttk.Button(main_frame, text="Translate", command=on_submit, width=.5)
+submit_button = ttk.Button(nested_frame, text="Translate", command=on_submit, width=.5)
 submit_button.grid(row=2, column=0, padx=0, pady=5, sticky='NSEW')
 
 # where translations go
-translation_label = ttk.Label(main_frame, text="Translation", font=("Helvetica", 11, "bold"), underline=0)
+translation_label = ttk.Label(nested_frame, text="Translation", font=("Helvetica", 11, "bold"), underline=0)
 translation_label.grid(row=3, column=0, padx=5, pady=5, sticky='W')
-translation_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=3)
+translation_entry = tkst.ScrolledText(nested_frame, wrap='word', state='disable', width=105, height=3) #3
 translation_entry.grid(row=4, column=0, padx=5, pady=5, sticky='EW')
 
 # where lessons go
-breakdown_label = ttk.Label(main_frame, text="Lesson", font=("Helvetica", 11, "bold"), underline=0)
+breakdown_label = ttk.Label(nested_frame, text="Lesson", font=("Helvetica", 11, "bold"), underline=0)
 breakdown_label.grid(row=5, column=0, padx=5, pady=5, sticky='W')
-breakdown_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=8)
+breakdown_entry = tkst.ScrolledText(nested_frame, wrap='word', state='disable', width=105, height=8) #8
 breakdown_entry.grid(row=6, column=0, padx=5, pady=5, sticky='EW')
 
 # where tense info goes
-tense_label = ttk.Label(main_frame, text="Tense", font=("Helvetica", 11, "bold"), underline=0)
+tense_label = ttk.Label(nested_frame, text="Tense", font=("Helvetica", 11, "bold"), underline=0)
 tense_label.grid(row=7, column=0, padx=5, pady=5, sticky='W')
-tense_entry = tkst.ScrolledText(main_frame, wrap='word', state='disable', width=105, height=12)
+tense_entry = tkst.ScrolledText(nested_frame, wrap='word', state='disable', width=105, height=10) #12
 tense_entry.grid(row=8, column=0, padx=5, pady=5, sticky='EW')
 
 # open tutor chat box
-tutor_button = tk.Button(main_frame, text="Need Help? AI Tutor.", command=tutor_launch)
+tutor_button = tk.Button(nested_frame, text="Need Help? AI Tutor.", command=tutor_launch)
 tutor_button.grid(row=9, column=0, padx=5, pady=5, sticky='EW')
 
 # open tutor chat box
-auto_button = tk.Button(main_frame, text="Writing Assistant.", command=auto_launch)
+auto_button = tk.Button(nested_frame, text="Writing Assistant.", command=auto_launch)
 auto_button.grid(row=10, column=0, padx=5, pady=5, sticky='EW')
+
+# Update the scrollregion after the nested_frame is configured
+nested_frame.update_idletasks()
+canvas.configure(scrollregion=canvas.bbox("all"))
+
 
 root.mainloop()
