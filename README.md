@@ -16,10 +16,22 @@ Install the required packages using:
 5. Click the Translate button.
 6. The Spanish translation, the Spanish lesson, and the tense of the translation will be displayed.
 
+# Examples
+## Translation
+![image](https://user-images.githubusercontent.com/93562392/232321235-b9653677-468a-4c63-88e0-2060e236c894.png)
+
+## Socratic Learning
+![image](https://user-images.githubusercontent.com/93562392/232321388-d3f3a964-d0cf-4552-90f3-9eb66d005530.png)
+
+## Sentence Autocomplete
+![image](https://user-images.githubusercontent.com/93562392/232320597-271b8a20-275c-4a4d-8d00-ddd7dcbe845b.png)
+
+
 # Dependencies
 The following packages are required:
 
 ```pip install openai```
+```pip install torch```
 
 # Contributors
 This project was developed by Liam and Capriana.
