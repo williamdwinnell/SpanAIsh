@@ -1,6 +1,6 @@
-# SpanAI
+# SpanAIsh
 An English to Spanish translator with a focus on education.
-- SpanAI is a simple graphical user interface (GUI) that uses the OpenAI GPT-3 model to translate English sentences to Spanish and provide a Spanish lesson about the translation. 
+- SpanAIsh is a simple graphical user interface (GUI) that uses the OpenAI GPT-3 model to translate English sentences to Spanish and provide a Spanish lesson about the translation. 
 - There is also a Socratic Chat system that attempts to teach spanish concepts in a more natural way using GPT-4. 
 - We also present a 2.4M parameter sentence autocompletion model for spanish, designed to help spanish learners write more effectively.
 
