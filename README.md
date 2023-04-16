@@ -4,12 +4,14 @@ SpanAI is a simple graphical user interface (GUI) that uses the OpenAI GPT-3 mod
 
 # Installation
 Clone the repository or download the files.
-Install the required packages using `pip install -r requirements.txt`
+Install the required packages using:
+- `pip install openai`
+- `pip install torch`
 
 # Usage
 1. Obtain an API key from OpenAI.
-2. Paste the API key in a file called key.txt in the same directory as the main.py file.
-3. Run the spanish_translator.py file.
+2. Create a new text file in the repository, and name it `key.txt`. Then paste the API key into the `key.txt` file. Make sure the text file is in the same directory as the `spanish_translator.py` file.
+3. Run the `spanish_translator.py` file.
 4. Type an English sentence in the input field.
 5. Click the Translate button.
 6. The Spanish translation, the Spanish lesson, and the tense of the translation will be displayed.
