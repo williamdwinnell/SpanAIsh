@@ -15,6 +15,7 @@ from tkinter import messagebox as mb
 # local imports 
 import tenses_data
 import socratic_spanish
+import SpanAIsh_learnit as lt
 
 # other imports
 import os
@@ -255,6 +256,9 @@ ext_key = ""
 with open(os.path.join(current_dir, "key.txt"), "r") as file:
     ext_key = file.readline()
 
+#activate api_key
+openai.api_key = ext_key
+
 def get_translation_turbo(inputLabel):
     prompt = "Translate the user's sentence to Spanish (Translation:). Next, write a spanish lesson (in English) teaching the key concepts from the translation, as if you were a spanish teacher. The lesson should be formatted as an ordered list that is 5 points long or less. (Lesson:). Lastly, identify the tense of the translation (Tense:) Make sure the tense is written in English and to label preterite vs imperfect correctly when needed, do not just say past tense."
     
@@ -264,8 +268,6 @@ def get_translation_turbo(inputLabel):
     response = response.choices[0].message.content
     return response
 
-#activate api_key
-openai.api_key = ext_key
 def tutor_launch():
     chatBox = socratic_spanish.SocraticChatBox()
     chatBox.create_window()
@@ -273,6 +275,9 @@ def tutor_launch():
 def auto_launch():
     autoBox = AutocompleteGUI()
     autoBox.create_window()
+
+def teacher_launch():
+    teacherBox = lt.SpanishTranslatorApp()
 
 def on_submit():
 
@@ -322,8 +327,9 @@ def on_submit():
 root = tk.Tk()
 root.protocol("WM_DELETE_WINDOW", root.quit)
 root.title("SpanAIsh")
+root.iconbitmap(current_dir + '/spanAIsh.ico')
 
-w =1120  # window width 
+w = 1120  # window width 
 h = 850  # window height
 
 # get screen width and height
@@ -417,6 +423,10 @@ tutor_button.grid(row=9, column=0, padx=5, pady=5, sticky='EW')
 # open tutor chat box
 auto_button = tk.Button(nested_frame, text="Writing Assistant.", command=auto_launch)
 auto_button.grid(row=10, column=0, padx=5, pady=5, sticky='EW')
+
+# open tutor chat box
+teacher_button = tk.Button(nested_frame, text="SpanAIsh Teacher.", command=teacher_launch)
+teacher_button.grid(row=11, column=0, padx=5, pady=5, sticky='EW')
 
 # Update the scrollregion after the nested_frame is configured
 nested_frame.update_idletasks()
