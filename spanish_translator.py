@@ -329,12 +329,12 @@ root.protocol("WM_DELETE_WINDOW", root.quit)
 root.title("SpanAIsh")
 root.iconbitmap(current_dir + '/spanAIsh.ico')
 
-w = 1120  # window width 
-h = 850  # window height
-
 # get screen width and height
 ws = root.winfo_screenwidth()  # width of the screen
 hs = root.winfo_screenheight()  # height of the screen
+
+w = int(ws/3*2)  # window width 
+h = int(hs/3*2)  # window height
 
 # calculate x and y coordinates for centering the window
 x = (ws / 2) - (w / 2)
